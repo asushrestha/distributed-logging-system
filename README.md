@@ -27,6 +27,18 @@ curl --location 'http://localhost:8081/logs'
 If you want to add filters for the logs, you can add it in the query parameters of the url:
 `http://localhost:8081/logs?serviceName={{serviceName}}&severity={{severity}}&startTime=2024-06-23T18:20:39.809144351Z&endTime=2024-06-23T18:25:39.809144351Z`
 
+## Posting the log from external interface:
+
+```bash
+curl --location 'http://localhost:8081/logs' \
+--header 'Content-Type: application/json' \
+--data '{
+    "severity":"INFO",
+    "message":"external message",
+    "serviceName":"ExternalService"
+}'
+```
+
 Severity:
 
 - WARN
